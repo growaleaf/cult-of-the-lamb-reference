@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cult of the Lamb Building &amp; Decoration Cost Reference</title>
+<style>
+  :root{
+    --bg:#15181d;
+    --panel:#1c2026;
+    --panel-2:#20252c;
+    --border:#2e343c;
+    --text:#dde2e8;
+    --text-dim:#8a929d;
+    --accent:#8a4f9b;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.45;
+  }
+  header{
+    padding:20px 24px 16px;
+    border-bottom:1px solid var(--border);
+  }
+  header h1{
+    margin:0 0 6px;
+    font-size:21px;
+  }
+  header p{
+    margin:0 0 4px;
+    color:var(--text-dim);
+    font-size:14px;
+    max-width:820px;
+  }
+  nav.tabs{
+    display:flex;
+    gap:8px;
+    padding:14px 24px 0;
+    border-bottom:1px solid var(--border);
+    background:var(--panel);
+    flex-wrap:wrap;
+  }
+  nav.tabs .tab{
+    padding:10px 16px;
+    font-size:13.5px;
+    color:var(--text-dim);
+    cursor:pointer;
+    border-bottom:2px solid transparent;
+    user-select:none;
+  }
+  nav.tabs .tab.active{
+    color:var(--text);
+    border-bottom-color:var(--accent);
+  }
+  section{ display:none; }
+  section.active{ display:block; }
+  .controls{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    padding:16px 24px;
+    border-bottom:1px solid var(--border);
+    background:var(--panel);
+    align-items:center;
+  }
+  input[type="search"], input[type="number"]{
+    background:var(--panel-2);
+    border:1px solid var(--border);
+    color:var(--text);
+    padding:8px 10px;
+    border-radius:6px;
+    font-size:14px;
+  }
+  input[type="search"]{ flex:1; min-width:200px; }
+  input[type="number"]{ width:70px; }
+  select{
+    background:var(--panel-2);
+    border:1px solid var(--border);
+    color:var(--text);
+    padding:8px 10px;
+    border-radius:6px;
+    font-size:14px;
+  }
+  .table-wrap{
+    padding:16px 24px 50px;
+    overflow-x:auto;
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:13.5px;
+  }
+  th, td{
+    text-align:left;
+    padding:8px 10px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+  }
+  th{
+    color:var(--text-dim);
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    position:sticky;
+    top:0;
+    background:var(--bg);
+  }
+  tbody tr:hover{
+    background:var(--panel);
+  }
+  .cost-pill{
+    display:inline-block;
+    background:var(--panel-2);
+    border:1px solid var(--border);
+    border-radius:4px;
+    padding:2px 7px;
+    font-size:12px;
+    margin:1px 3px 1px 0;
+    white-space:nowrap;
+  }
+  .cell-note{
+    font-size:11.5px;
+    color:var(--text-dim);
+    margin-top:4px;
+  }
+  .conflict{
+    font-size:11.5px;
+    color:#c2a23c;
+    margin-top:4px;
+    border-left:2px solid #c2a23c;
+    padding-left:6px;
+  }
+  .not-published{ color:var(--text-dim); font-style:italic; }
+  footer.sources{
+    padding:16px 24px 60px;
+    border-top:1px solid var(--border);
+    font-size:12px;
+    color:var(--text-dim);
+  }
+  footer.sources a{ color:var(--text-dim); }
+  footer.sources li{ margin-bottom:8px; }
+  .planner-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:6px 24px;
+    border-bottom:1px solid var(--border);
+    font-size:13.5px;
+  }
+  .planner-row .name{ flex:1; }
+  .planner-total{
+    padding:16px 24px;
+    background:var(--panel);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .planner-total h3{ margin:0 0 8px; font-size:14px; }
+  .lookup-result{ padding:0 24px 20px; }
+  .lookup-result .card{
+    background:var(--panel-2);
+    border:1px solid var(--border);
+    border-radius:8px;
+    padding:14px 16px;
+    margin-bottom:10px;
+  }
+  .lookup-result ul{ margin:6px 0 0 18px; padding:0; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Cult of the Lamb Building &amp; Decoration Cost Reference</h1>
+  <p>Mid-session, base half-built, controller in hand: look up what a building or decoration actually costs, plan a batch of them and see the total materials, or go the other way and find out what everything you can build with the Bone or Spider Silk you're sitting on.</p>
+</header>
+
+<nav class="tabs">
+  <div class="tab active" data-section="table">All Items (157)</div>
+  <div class="tab" data-section="planner">Base Planner</div>
+  <div class="tab" data-section="reverse">By Resource</div>
+</nav>
+
+<section id="table" class="active">
+  <div class="controls">
+    <input type="search" id="item-search" placeholder="Search name, resource, or category..." />
+    <select id="category-select"></select>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Category</th>
+          <th>Cost</th>
+          <th>Unlock requirement</th>
+        </tr>
+      </thead>
+      <tbody id="item-rows"></tbody>
+    </table>
+  </div>
+</section>
+
+<section id="planner">
+  <div class="controls">
+    <input type="search" id="planner-search" placeholder="Search to add an item to your plan..." />
+    <select id="planner-category-select"></select>
+  </div>
+  <div id="planner-rows"></div>
+  <div class="planner-total">
+    <h3>Total resources for this plan</h3>
+    <div id="planner-total-content"></div>
+  </div>
+</section>
+
+<section id="reverse">
+  <div class="controls">
+    <select id="resource-select"></select>
+  </div>
+  <div class="lookup-result" id="resource-result"></div>
+</section>
+
+<footer class="sources">
+  Sources &amp; caveats:
+  <ul>
+    <li><a href="https://web.archive.org/web/2025/https://cultofthelamb.wiki.gg/wiki/Buildings_and_Decorations" target="_blank" rel="noopener">cultofthelamb.wiki.gg, "Buildings" page</a> (redirected from "Buildings and Decorations"), read via archive.org after the live page returned HTTP 410. Page footer states it was last edited 29 January 2024, and that pages created before February 2024 originate from the Fandom Cult of the Lamb Wiki, now hosted on wiki.gg under CC BY-SA 4.0. This is the primary source for every building row and most decoration rows, and covers the base game plus the Cultist Pack, Heretic Pack, Twitch Unlocks, Merch, Blood Moon Festival, and the four Crusade-area decoration sets (Darkwood, Anura, Anchordeep, Silk Cradle). Its "Sinful Pack DLC" section header had no items listed under it as of this read.</li>
+    <li><a href="https://web.archive.org/web/2025/https://techraptor.net/gaming/guides/cult-of-lamb-decorations-guide" target="_blank" rel="noopener">TechRaptor, "Cult of the Lamb Decorations Guide"</a>, published August 12, 2022 (launch week), read via archive.org after the live site returned HTTP 403. Used to cross-check decoration costs and to supply "Unlocked By" detail (Chest / Challenge Reward / Shop, specific Divine Inspiration tiers) that wiki.gg's page layout does not cleanly expose.</li>
+    <li><a href="https://web.archive.org/web/2025/https://techraptor.net/gaming/guides/cult-of-lamb-divine-inspiration-and-building-guide" target="_blank" rel="noopener">TechRaptor, "Cult of the Lamb Divine Inspiration and Building Guide"</a>, published August 12, 2022 (launch week), read via archive.org after the live site returned HTTP 403. Used only to corroborate Natural Burial's Doctrine requirement; its launch-week building costs (e.g. "4 Wood, 8 Coin" for Sleeping Bag) are consistently lower than wiki.gg's current figures and are treated as an outdated snapshot, not a same-era conflict, since the game has been patched repeatedly since August 2022.</li>
+    <li>game8.co, gamepressure.com, and thegamer.com (all named as candidate sources in the charter) were searched but did not return a static, citable buildings/decorations list separate from the sources above within this session's search budget; none of their content was used. No calculator or interactive planner for this game's building costs was found anywhere — this page's planner is original, built from the sourced per-item costs above.</li>
+  </ul>
+  <div>Version context: wiki.gg's page (edited January 2024) is treated as the current baseline because it is the most recently updated and most complete of the sources found, covering every DLC and Crusade area. TechRaptor's two guides are an August 2022 launch-week snapshot and are shown only where they corroborate or conflict with wiki.gg, never as a replacement baseline.</div>
+  <div style="margin-top:8px;">Blanks are shown as "not published," never invented, and a genuinely free item (most Paths, two DLC floorings) is shown as "None" rather than merged into "not published." Where two sources disagree on quantity or resource name for the same item, both readings are shown in a flagged note rather than one being silently picked. This is an unofficial fan reference, not affiliated with Massive Monster or Devolver Digital.</div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+  const CATEGORIES = allCategories();
+
+  function costHtml(cost) {
+    if (cost === "not published") return '<span class="not-published">not published</span>';
+    if (cost === "None") return '<span class="not-published">None</span>';
+    return cost.map(c => `<span class="cost-pill">${c.qty} ${c.resource}</span>`).join("");
+  }
+
+  function matchesSearch(item, q) {
+    if (!q) return true;
+    q = q.toLowerCase();
+    if (item.name.toLowerCase().includes(q)) return true;
+    if (item.category.toLowerCase().includes(q)) return true;
+    if (Array.isArray(item.cost) && item.cost.some(c => c.resource.toLowerCase().includes(q))) return true;
+    return false;
+  }
+
+  // ---- Table ----
+  const itemRowsEl = document.getElementById("item-rows");
+  const itemSearchEl = document.getElementById("item-search");
+  const categorySelectEl = document.getElementById("category-select");
+  categorySelectEl.innerHTML = '<option value="All">All categories</option>' +
+    CATEGORIES.map(c => `<option value="${c}">${c}</option>`).join("");
+
+  function renderTable() {
+    const q = itemSearchEl.value.trim();
+    const cat = categorySelectEl.value;
+    const filtered = ITEMS.filter(i =>
+      (cat === "All" || i.category === cat) && matchesSearch(i, q)
+    );
+    itemRowsEl.innerHTML = "";
+    for (const i of filtered) {
+      const tr = document.createElement("tr");
+      let conflictHtml = i.conflict ? `<div class="conflict">Conflict: ${i.conflict}</div>` : "";
+      tr.innerHTML = `
+        <td>${i.name}<div class="cell-note">${i.desc}</div></td>
+        <td>${i.category}</td>
+        <td>${costHtml(i.cost)}${conflictHtml}</td>
+        <td>${i.unlock}</td>
+      `;
+      itemRowsEl.appendChild(tr);
+    }
+  }
+  itemSearchEl.addEventListener("input", renderTable);
+  categorySelectEl.addEventListener("change", renderTable);
+
+  // ---- Planner ----
+  const plannerRowsEl = document.getElementById("planner-rows");
+  const plannerSearchEl = document.getElementById("planner-search");
+  const plannerCategorySelectEl = document.getElementById("planner-category-select");
+  const plannerTotalEl = document.getElementById("planner-total-content");
+  plannerCategorySelectEl.innerHTML = '<option value="All">All categories</option>' +
+    CATEGORIES.map(c => `<option value="${c}">${c}</option>`).join("");
+
+  const planQty = {}; // name -> qty
+
+  function renderPlanner() {
+    const q = plannerSearchEl.value.trim();
+    const cat = plannerCategorySelectEl.value;
+    const filtered = ITEMS.filter(i =>
+      (cat === "All" || i.category === cat) && matchesSearch(i, q)
+    );
+    plannerRowsEl.innerHTML = "";
+    for (const i of filtered) {
+      const row = document.createElement("div");
+      row.className = "planner-row";
+      const qty = planQty[i.name] || 0;
+      row.innerHTML = `
+        <div class="name">${i.name} <span class="cell-note">${costHtml(i.cost)}</span></div>
+        <input type="number" min="0" value="${qty}" data-name="${i.name}" />
+      `;
+      plannerRowsEl.appendChild(row);
+    }
+    plannerRowsEl.querySelectorAll("input[type=number]").forEach(inp => {
+      inp.addEventListener("input", () => {
+        const name = inp.dataset.name;
+        const v = parseInt(inp.value, 10) || 0;
+        if (v > 0) planQty[name] = v; else delete planQty[name];
+        renderPlannerTotal();
+      });
+    });
+  }
+
+  function renderPlannerTotal() {
+    const plan = Object.entries(planQty).map(([name, qty]) => ({ name, qty }));
+    if (plan.length === 0) {
+      plannerTotalEl.innerHTML = '<span class="not-published">Set quantities above to see a total.</span>';
+      return;
+    }
+    const { totals, notPublished } = totalForPlan(plan);
+    const resourceEntries = Object.entries(totals).sort((a, b) => a[0].localeCompare(b[0]));
+    let html = resourceEntries.map(([res, qty]) => `<span class="cost-pill">${qty} ${res}</span>`).join("");
+    if (notPublished.length) {
+      html += `<div class="cell-note" style="margin-top:8px;">Excluded from the total (cost not published): ${notPublished.join(", ")}</div>`;
+    }
+    plannerTotalEl.innerHTML = html;
+  }
+
+  plannerSearchEl.addEventListener("input", renderPlanner);
+  plannerCategorySelectEl.addEventListener("change", renderPlanner);
+
+  // ---- Reverse lookup by resource ----
+  const resourceSelectEl = document.getElementById("resource-select");
+  const resourceResultEl = document.getElementById("resource-result");
+  const resources = allResources();
+  resourceSelectEl.innerHTML = resources.map(r => `<option value="${r}">${r}</option>`).join("");
+
+  function renderResource() {
+    const r = resourceSelectEl.value;
+    const uses = itemsUsingResource(r).sort((a, b) => a.qty - b.qty);
+    resourceResultEl.innerHTML = "";
+    const card = document.createElement("div");
+    card.className = "card";
+    let html = `<h3>Everything that costs ${r}</h3><ul>`;
+    for (const u of uses) {
+      html += `<li>${u.name} — ${u.qty} ${r}</li>`;
+    }
+    html += "</ul>";
+    card.innerHTML = html;
+    resourceResultEl.appendChild(card);
+  }
+  resourceSelectEl.addEventListener("change", renderResource);
+
+  // ---- Tabs ----
+  const tabs = document.querySelectorAll(".tab");
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+      document.getElementById(tab.dataset.section).classList.add("active");
+    });
+  });
+
+  renderTable();
+  renderPlanner();
+  renderPlannerTotal();
+  renderResource();
+</script>
+
+</body>
+</html>
